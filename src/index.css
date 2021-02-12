@@ -11,3 +11,20 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+a {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+form .fields {
+  display: grid;
+  grid-template-columns: 20% 50%;
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 500px) {
+  form .fields {
+    grid-template-columns: 40% 60%;
+  }
+}
