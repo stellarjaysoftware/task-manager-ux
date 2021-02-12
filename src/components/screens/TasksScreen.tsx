@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {TaskRow} from "../TaskRow";
+import {TaskRow} from "./TaskRow";
 import {TaskManagerAPI} from "../../services/TaskManagerAPI";
 import {Task} from "../../models/Task";
 

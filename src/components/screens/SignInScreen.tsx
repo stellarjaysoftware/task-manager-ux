@@ -41,19 +41,6 @@ export const SignInScreen = (props:Props) => {
     }
   }
 
-  const handlePrePop = (num:number) => {
-    switch (num) {
-      case 1:
-        setEmail('christinenorland@gmail.com');
-        setPassword('babySloth8');
-        break;
-      case 2:
-        setEmail('scott@scottnorland.net');
-        setPassword('energy123');
-        break;
-    }
-  }
-
   const handleInputChange = (event:{target: {value:string}}, field:string) => {
     const newVal = event.target.value;
       setError('');
@@ -99,14 +86,7 @@ export const SignInScreen = (props:Props) => {
             : <a onClick={() => setScreenTitle(ScreenTitle.signIn)}>sign in using existing account</a>
         }
         </div>
-        <br /><br /><br />
-        {
-          screenTitle === ScreenTitle.signIn ? <React.Fragment>
-              <button onClick={() => handlePrePop(1)}>pre-populate 1</button><br />
-              <button onClick={() => handlePrePop(2)}>pre-populate 2</button><br />
-          </React.Fragment>
-            : null
-        }
+        <br /><br />
       </form>
     </React.Fragment>
   );

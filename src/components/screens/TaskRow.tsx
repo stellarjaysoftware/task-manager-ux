@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {Task} from "../models/Task";
+import {Task} from "../../models/Task";
 
 interface Props {
   task: Task,
