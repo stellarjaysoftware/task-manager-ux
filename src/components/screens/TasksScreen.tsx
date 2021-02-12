@@ -2,12 +2,13 @@ import React, {useState} from "react";
 import {TaskRow} from "./TaskRow";
 import {TaskManagerAPI} from "../../services/TaskManagerAPI";
 import {Task} from "../../models/Task";
+import {authRequired} from "../authRequired";
 
 interface Props {
   taskAPI: TaskManagerAPI
 }
 
-export const TasksScreen = (props:Props) => {
+const _TasksScreen = (props:Props) => {
   const [error, setError] = useState('');
   const initTasks:Task[] = [];
   const [tasks, setTasks] = useState(initTasks);
@@ -55,7 +56,8 @@ export const TasksScreen = (props:Props) => {
                <button onClick={handleCreate}>add</button>
         {error ? <div style={{color: 'red', marginBottom: '10px'}}>{error}</div> : null}
       </div>
-
     </React.Fragment>
   );
 }
+
+export const TasksScreen = authRequired(_TasksScreen);

@@ -1,12 +1,13 @@
 import React, { useState} from "react";
 import {TaskManagerAPI} from "../../services/TaskManagerAPI";
 import {User} from "../../models/User";
+import {authRequired} from "../authRequired";
 
 interface Props {
   taskAPI: TaskManagerAPI
 }
 
-export const ProfileScreen = (props:Props) => {
+const _ProfileScreen = (props:Props) => {
   const initUser = new User();
   const [user, setUser] = useState(initUser);
   const [attemptedFetch, setAttemptedFetch] = useState(false);
@@ -123,3 +124,5 @@ export const ProfileScreen = (props:Props) => {
     </React.Fragment>
   );
 }
+
+export const ProfileScreen = authRequired(_ProfileScreen);

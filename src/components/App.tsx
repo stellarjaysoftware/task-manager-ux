@@ -33,26 +33,20 @@ export const App = () => {
     <AuthContext.Provider value={authState}>
       <Router>
         <div style={styles.appWrapper}>
-          <AuthContext.Consumer>
-            {({isLoggedIn}: AuthContextType) => {
-              return (
-                <React.Fragment>
-                  <Header taskAPI={taskAPI}/>
-                  <div style={styles.appContent}>
-                    <Route path="/" exact={true}>
-                      <SignInScreen taskAPI={taskAPI} />
-                    </Route>
-                    <Route path="/tasks">
-                      {!isLoggedIn ? <Redirect to="/"/> : <TasksScreen taskAPI={taskAPI} />}
-                    </Route>
-                    <Route path="/profile">
-                      {!isLoggedIn ? <Redirect to="/"/> : <ProfileScreen taskAPI={taskAPI} />}
-                    </Route>
-                  </div>
-                </React.Fragment>
-              )
-            }}
-          </AuthContext.Consumer>
+          <React.Fragment>
+            <Header taskAPI={taskAPI}/>
+            <div style={styles.appContent}>
+              <Route path="/" exact={true}>
+                <SignInScreen taskAPI={taskAPI} />
+              </Route>
+              <Route path="/tasks">
+                <TasksScreen taskAPI={taskAPI} />
+              </Route>
+              <Route path="/profile">
+                <ProfileScreen taskAPI={taskAPI} />
+              </Route>
+            </div>
+          </React.Fragment>
         </div>
       </Router>
     </AuthContext.Provider>
